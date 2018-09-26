@@ -1,0 +1,4 @@
+SpringBoot 启动的时候我们可以看到默认输出的内容，
+这一块其实是可以自定义的哦，而且在 2.X 版本中，
+它支持的格式从文本扩展到banner.txt、banner.jpg、banner.gif、banner.jpeg 等等，
+只需要在 resouces 目录下添加指定命名的文件即可。
