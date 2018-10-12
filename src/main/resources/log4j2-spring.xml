@@ -4,7 +4,7 @@
 -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
      to make all loggers asynchronous. -->
 
-<Configuration status="WARN" moniterInterval="86400">
+<Configuration status="WARN" moniterInterval="86400" packages="io.prometheus.client.log4j2">
     <!-- 定义常量 -->
     <properties>
         <property name="APP_NAME">springboot</property>
@@ -41,6 +41,8 @@
                 <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
         </RollingRandomAccessFile>
+
+        <Prometheus name="METRICS"/>
     </Appenders>
 
     <Loggers>
@@ -62,10 +64,11 @@
             <appender-ref ref="ErrorRandomAccessFile"/>
             <!--<appender-ref ref="Console"/>-->
         </AsyncLogger>
-        <root level="${dyn.log.level}" includeLocation="true">
+        <root level="debug" includeLocation="true">
             <appender-ref ref="Console"/>
             <appender-ref ref="AllRandomAccessFile"/>
             <appender-ref ref="ErrorRandomAccessFile"/>
+            <appender-ref ref="METRICS"/>
         </root>
     </Loggers>
 
