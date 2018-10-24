@@ -215,6 +215,7 @@
             <properties>
                 <!-- 日志级别 -->
                 <dyn.log.level>DEBUG</dyn.log.level>
+                <dyn.profile>dev</dyn.profile>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -225,6 +226,7 @@
             <properties>
                 <!-- 日志级别 -->
                 <dyn.log.level>DEBUG</dyn.log.level>
+                <dyn.profile>test</dyn.profile>
             </properties>
             <!--<activation>
                 <activeByDefault>true</activeByDefault>
@@ -235,6 +237,7 @@
             <properties>
                 <!-- 日志级别 -->
                 <dyn.log.level>DEBUG</dyn.log.level>
+                <dyn.profile>yanlian</dyn.profile>
             </properties>
             <!--<activation>
                 <activeByDefault>true</activeByDefault>
@@ -245,6 +248,7 @@
             <properties>
                 <!-- 日志级别 -->
                 <dyn.log.level>INFO</dyn.log.level>
+                <dyn.profile>prod</dyn.profile>
             </properties>
             <!-- <activation>
                  <activeByDefault>true</activeByDefault>

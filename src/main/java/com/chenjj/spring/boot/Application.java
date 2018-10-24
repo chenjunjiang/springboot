@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
 
-// @RestController
+@RestController
 @SpringBootApplication
 @EnableAdminServer
 public class Application {
@@ -24,10 +24,10 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    /*@RequestMapping("demo1")
+    @RequestMapping("/")
     public String demo1() {
         return "Hello Boot";
-    }*/
+    }
 
     /**
      * 容器启动完成的时候执行
