@@ -1,15 +1,12 @@
 package com.chenjj.spring.boot.configuration;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * Created by chenjunjiang on 18-10-24.
- * 开发环境不进行安全校验
+ * 无需安全认证就允许spring boot admin server访问client endpoint
  */
-@Profile("dev")
 @Configuration
 public class SecurityPermitAllConfig extends WebSecurityConfigurerAdapter {
     @Override

@@ -1,6 +1,5 @@
 package com.chenjj.spring.boot;
 
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import io.prometheus.client.exporter.MetricsServlet;
 import io.prometheus.client.hotspot.DefaultExports;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +17,6 @@ import java.util.Arrays;
 
 @RestController
 @SpringBootApplication
-@EnableAdminServer
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
