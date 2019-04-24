@@ -4,8 +4,10 @@ import io.prometheus.client.exporter.MetricsServlet;
 import io.prometheus.client.hotspot.DefaultExports;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,9 @@ import java.util.Arrays;
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        /*new SpringApplicationBuilder(Application.class)
+                .web(WebApplicationType.NONE) // .REACTIVE, .SERVLET
+                .run(args);*/
         System.out.println("Application started");
     }
 

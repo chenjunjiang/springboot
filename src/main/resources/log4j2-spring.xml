@@ -43,6 +43,10 @@
         </RollingRandomAccessFile>
 
         <Prometheus name="METRICS"/>
+        <RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
+                  topic="yourLogTopic" tag="yourTag">
+            <PatternLayout pattern="%d [%p] hahahah %c %m%n"/>
+        </RocketMQ>
     </Appenders>
 
     <Loggers>
@@ -50,7 +54,7 @@
         <AsyncLogger name="com.alibaba.dubbo" level="INFO" includeLocation="true" additivity="false">
             <appender-ref ref="AllRandomAccessFile"/>
             <appender-ref ref="ErrorRandomAccessFile"/>
-            <!--<appender-ref ref="Console"/>-->
+            <appender-ref ref="Console"/>
         </AsyncLogger>
         <!-- spring相关 -->
         <AsyncLogger name="org.springframework" level="WARN" includeLocation="true" additivity="false">
@@ -62,7 +66,7 @@
         <AsyncLogger name="org.apache.zookeeper" level="WARN" includeLocation="true" additivity="false">
             <appender-ref ref="AllRandomAccessFile"/>
             <appender-ref ref="ErrorRandomAccessFile"/>
-            <!--<appender-ref ref="Console"/>-->
+            <appender-ref ref="Console"/>
         </AsyncLogger>
         <root level="debug" includeLocation="true">
             <appender-ref ref="Console"/>
