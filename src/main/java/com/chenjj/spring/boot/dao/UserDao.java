@@ -33,4 +33,6 @@ public interface UserDao {
      * @return 成功 1 失败 0
      */
     int insert(User user);
+
+    User findById(int id);
 }

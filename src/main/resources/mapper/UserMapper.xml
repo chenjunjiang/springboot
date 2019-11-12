@@ -6,4 +6,8 @@
         INSERT INTO `t_user`(`username`,`password`) VALUES (#{username},#{password})
     </insert>
 
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.chenjj.spring.boot.model.User">
+        select * from t_user where id = #{id}
+    </select>
+
 </mapper>
