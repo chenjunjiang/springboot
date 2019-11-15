@@ -174,12 +174,13 @@
             <artifactId>rocketmq-client</artifactId>
             <version>4.3.0</version>
         </dependency>
-        <dependency>
+        <!-- 如果在Linux下把netty的日志设置为debug，那么需要加上以下依赖，都在会报错：no netty_transport_native_epoll_x86_64 in java.library.path -->
+        <!--<dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-native-epoll</artifactId>
             <version>4.1.43.Final</version>
             <classifier>linux-x86_64</classifier>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

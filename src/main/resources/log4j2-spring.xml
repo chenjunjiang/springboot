@@ -68,8 +68,8 @@
             <appender-ref ref="ErrorRandomAccessFile"/>
             <appender-ref ref="Console"/>
         </AsyncLogger>
-        <!--这里如果设置为debug,netty会报错:https://github.com/netty/netty/issues/7319-->
-        <root level="INFO" includeLocation="true">
+        <!--这里如果在Linux下设置为debug,netty会报错:https://github.com/netty/netty/issues/7319-->
+        <root level="DEBUG" includeLocation="true">
             <appender-ref ref="Console"/>
             <appender-ref ref="AllRandomAccessFile"/>
             <appender-ref ref="ErrorRandomAccessFile"/>
