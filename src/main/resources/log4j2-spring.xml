@@ -43,10 +43,10 @@
         </RollingRandomAccessFile>
 
         <Prometheus name="METRICS"/>
-        <RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
+        <!--<RocketMQ name="rocketmqAppender" producerGroup="yourLogGroup" nameServerAddress="yourRocketmqNameserverAddress"
                   topic="yourLogTopic" tag="yourTag">
             <PatternLayout pattern="%d [%p] hahahah %c %m%n"/>
-        </RocketMQ>
+        </RocketMQ>-->
     </Appenders>
 
     <Loggers>
