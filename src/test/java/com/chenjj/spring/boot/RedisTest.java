@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,10 +20,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 /**
  * Created by chenjunjiang on 18-10-4.
+ * 做测试的时候需要有Application这个类，以便加载所有需要的资源
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -45,10 +48,13 @@ public class RedisTest {
 
     @Test
     public void test() {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        IntStream.range(0, 1000).forEach(i -> executorService.execute(() -> stringRedisTemplate.opsForValue().increment("kk", 1)));
+        /*ExecutorService executorService = Executors.newFixedThreadPool(10);
+        IntStream.range(0, 1000).forEach(i -> executorService.execute(() -> stringRedisTemplate.opsForValue()
+        .increment("kk", 1)));
         String kk = stringRedisTemplate.opsForValue().get("kk");
-        System.out.println(kk);
+        System.out.println(kk);*/
+        ValueOperations<String, String> valueOperations = stringRedisTemplate.opsForValue();
+        valueOperations.set("k1", "test", 100, TimeUnit.SECONDS);
     }
 
     @Test
