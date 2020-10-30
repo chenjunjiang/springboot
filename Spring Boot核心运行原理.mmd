@@ -173,7 +173,30 @@ spring.factories也可以包含其他类型待注册的类。该配置文件不�
 
 ## @Conditional
 - NOTE
-<pre>条件注解及其衍生注解，在AutoConfiguration类上使用，当满足该条件注解时才会实例化AutoConfiguration类。</pre>
+<pre>@Conditional注解是由Spring 4.0版本引入的新特性，可根据是否满足指定的条件来决定是否进行
+Bean的实例化及装配，比如，设定当类路径下包含某个jar包的时候才会对注解的类进行实例化操作。
+总之，就是根据一些特定条件来控制Bean实例化的行为。
+@Conditional注解唯一的元素属性是接口Condition的数组，只有在数组中指定的所有Condition的
+matches方法都返回true的情况下，被注解的类才会被加载。
+
+在Spring Boot的autoconfigure项目中提供了各类基于@Conditional注解的衍生注解，
+它们适用不同的场景并提供了不同的功能。
+以下相关注解均位于spring-boot-autoconfigure项目的
+org.springframework.boot.autoconfigure.condition包下。
+·@ConditionalOnBean：在容器中有指定Bean的条件下。
+·@ConditionalOnClass：在classpath类路径下有指定类的条件下。
+·@ConditionalOnCloudPlatform：当指定的云平台处于active状态时。
+·@ConditionalOnExpression：基于SpEL表达式的条件判断。
+·@ConditionalOnJava：基于JVM版本作为判断条件。
+·@ConditionalOnJndi：在JNDI存在的条件下查找指定的位置。
+·@ConditionalOnMissingBean：当容器里没有指定Bean的条件时。
+·@ConditionalOnMissingClass：当类路径下没有指定类的条件时。
+·@ConditionalOnNotWebApplication：在项目不是一个Web项目的条件下。
+·@ConditionalOnProperty：在指定的属性有指定值的条件下。
+·@ConditionalOnResource：类路径是否有指定的值。
+·@ConditionalOnSingleCandidate：当指定的Bean在容器中只有一个或者有多个但是指定了首选的Bean时。
+·@ConditionalOnWebApplication：在项目是一个Web项目的条件下。
+</pre>
 
 ## Starters
 > leftSide=`true`
