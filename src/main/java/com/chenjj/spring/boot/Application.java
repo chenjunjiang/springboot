@@ -1,7 +1,10 @@
 package com.chenjj.spring.boot;
 
+import com.chenjj.spring.boot.configuration.WithoutAnnoConfiguration;
+import com.chenjj.spring.boot.initializer.CustomApplicationContextInitializer;
 import io.prometheus.client.exporter.MetricsServlet;
 import io.prometheus.client.hotspot.DefaultExports;
+import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -10,18 +13,33 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @RestController
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
+        /*SpringApplication springApplication = new SpringApplication(Application.class);
+        springApplication.addInitializers(new CustomApplicationContextInitializer());
+        springApplication.setBannerMode(Banner.Mode.OFF);
+        Set<String> set = new HashSet<>();
+        set.add(WithoutAnnoConfiguration.class.getName());
+        springApplication.setSources(set);
+        ConfigurableApplicationContext context = springApplication.run(args);
+        WithoutAnnoConfiguration withoutAnnoConfiguration = context
+                .getBean(WithoutAnnoConfiguration.class);
+        System.out.println(withoutAnnoConfiguration.getName());*/
+
         /*new SpringApplicationBuilder(Application.class)
                 .web(WebApplicationType.NONE) // .REACTIVE, .SERVLET
                 .run(args);*/
