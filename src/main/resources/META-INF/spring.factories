@@ -1,2 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.chenjj.spring.boot.configuration.MemberAutoConfiguration
+
+org.springframework.boot.SpringApplicationRunListener=\
+com.chenjj.spring.boot.listener.MyApplicationRunListener
