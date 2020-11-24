@@ -1,5 +1,7 @@
 package com.chenjj.spring.boot;
 
+import com.chenjj.spring.boot.args.ArgsBean;
+import com.chenjj.spring.boot.configuration.LoginUserConfig;
 import com.chenjj.spring.boot.configuration.WithoutAnnoConfiguration;
 import com.chenjj.spring.boot.initializer.CustomApplicationContextInitializer;
 import io.prometheus.client.exporter.MetricsServlet;
@@ -11,6 +13,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -25,9 +28,12 @@ import java.util.Set;
 
 @RestController
 @SpringBootApplication
+// @EnableConfigurationProperties(value = LoginUserConfig.class )
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+        ArgsBean argsBean = context.getBean(ArgsBean.class);
+        argsBean.printArgs();
 
         /*SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.addInitializers(new CustomApplicationContextInitializer());

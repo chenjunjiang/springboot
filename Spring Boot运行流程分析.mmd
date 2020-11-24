@@ -375,7 +375,7 @@ public void refresh() throws BeansException, IllegalStateException {
 		}
 	}   
 在上面的代码中，调用finishRefresh方法初始化容器的生命周期处理器并发布容器的生命周期事件之后，
-Spring应用上下文正式开启，Spring Boot核心特性也随之启动。
+Spring应用上下文正式开启，Spring Boot核心特性(自动配置)也随之启动。
 
 完成refreshContext方法操作之后，调用afterRefresh方法。新版本的Spring Boot中refreshContext
 方法的实现默认为空，可由开发人员自行扩展。但需要注意的是，该方法在以往的版本中方法定义和
@@ -386,6 +386,10 @@ protected void afterRefresh(ConfigurableApplicationContext context, ApplicationA
 并调用ApplicationRunner和CommandLineRunner的运行方法。
 
 </pre>
+
+### 这一步会进行自动配置
+- NOTE
+<pre>参见 自动配置源码调用图.png</pre>
 
 ## 调用ApplicationRunner和CommandLineRunner
 - NOTE

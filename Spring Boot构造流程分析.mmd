@@ -38,7 +38,7 @@ SpringApplication的核心构造方法有两个参数，第一个为ResourceLoad
 而是直接或间接被@EnableAutoConfiguration标注的类。
 在此也证明了之前提到的@SpringBootApplication和@EnableAutoConfiguration入口
 并没有依赖关系，只是无论通过new创建SpringApplication对象再调用run方法或
-是通过SpringApplication的run方法来启动程序，都不离不开primarySources参数。</pre>
+是通过SpringApplication的run方法来启动程序，都离不开primarySources参数。</pre>
 
 ## Web应用类型推断
 > leftSide=`true`
