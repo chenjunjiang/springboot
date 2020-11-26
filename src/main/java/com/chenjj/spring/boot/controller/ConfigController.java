@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
+@RequestMapping("/config")
 public class ConfigController {
     @Value("${user.username}")
     private String username;
