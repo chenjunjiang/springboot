@@ -68,7 +68,8 @@ public static void main(String[] args) {
 
 ### ImportSelector接口
 - NOTE
-<pre>@Import的许多功能都需要借助接口ImportSelector来实现，ImportSelector决定可引入哪些@Configuration。
+<pre>@Import的许多功能都需要借助接口ImportSelector来实现，
+ImportSelector决定可引入哪些@Configuration。
 
 ImportSelector接口只提供了一个参数为AnnotationMetadata的方法，返回的结果为一个字符串数组。
 其中参数AnnotationMetadata内包含了被@Import注解的类的注解信息。

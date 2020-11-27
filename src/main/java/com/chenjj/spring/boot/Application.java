@@ -15,9 +15,12 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -29,11 +32,13 @@ import java.util.Set;
 @RestController
 @SpringBootApplication
 // @EnableConfigurationProperties(value = LoginUserConfig.class )
+// @EnableCaching
 public class Application {
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
-        ArgsBean argsBean = context.getBean(ArgsBean.class);
-        argsBean.printArgs();
+        try {
+            ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+            ArgsBean argsBean = context.getBean(ArgsBean.class);
+            argsBean.printArgs();
 
         /*SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.addInitializers(new CustomApplicationContextInitializer());
@@ -49,7 +54,10 @@ public class Application {
         /*new SpringApplicationBuilder(Application.class)
                 .web(WebApplicationType.NONE) // .REACTIVE, .SERVLET
                 .run(args);*/
-        System.out.println("Application started");
+            System.out.println("Application started");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping("/")
@@ -63,7 +71,7 @@ public class Application {
      * @param context
      * @return
      */
-    @Bean
+    // @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext context) {
         return args -> {
             System.out.println("来看看 SpringBoot 默认为我们提供的 Bean：");

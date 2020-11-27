@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by chenjunjiang on 18-10-4.
  */
-@Configuration
+//@Configuration
 public class RedisCacheAutoConfiguration {
     @Bean
     public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
