@@ -64,7 +64,14 @@ public static void main(String[] args) {
 <pre>@Import注解位于spring-context项目内，主要提供导入配置类的功能。
 @Import的作用和xml配置中&lt;import/&gt;标签的作用一样，我们可以通过@Import引入
 @Configuration注解的类，也可以导入实现了ImportSelector或ImportBeanDefinitionRegistrar的类，
-还可以通过@Import导入普通的POJO（将其注册成Spring Bean，导入POJO需要Spring 4.2以上版本）。</pre>
+还可以通过@Import导入普通的POJO（将其注册成Spring Bean，导入POJO需要Spring 4.2以上版本）。
+
+https://blog.csdn.net/boling_cavalry/article/details/82530167
+在@Import注解的参数中可以填写类名，例如@Import(Abc.class)，根据类Abc的不同类型，spring容器有以下四种处理方式：
+1. 如果Abc类实现了ImportSelector接口，spring容器就会实例化Abc类，并且调用其selectImports方法；
+2. DeferredImportSelector是ImportSelector的子类，如果Abc类实现了DeferredImportSelector接口，spring容器就会实例化Abc类，并且调用其selectImports方法，和ImportSelector的实例不同的是，DeferredImportSelector的实例的selectImports方法调用时机晚于ImportSelector的实例，要等到@Configuration注解中相关的业务全部都处理完了才会调用（具体逻辑在ConfigurationClassParser.processDeferredImportSelectors方法中），想了解更多DeferredImportSelector和ImportSelector的区别，请参考《ImportSelector与DeferredImportSelector的区别（spring4） 》；
+3. 如果Abc类实现了ImportBeanDefinitionRegistrar接口，spring容器就会实例化Abc类，并且调用其registerBeanDefinitions方法；
+4. 如果Abc没有实现ImportSelector、DeferredImportSelector、ImportBeanDefinitionRegistrar等其中的任何一个，spring容器就会实例化Abc类，官方说明在这里；</pre>
 
 ### ImportSelector接口
 - NOTE
