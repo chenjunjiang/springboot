@@ -19,16 +19,15 @@ public /*final*/ class AppConfig {
      * 会再次被初始化，Spring 容器中会有两个MyBean。
      * 不建议这样用，idea也会有提示。
      *
-     * @param myBean
      * @return
      */
-    /*@Bean
+    @Bean
     public YourBean yourBean() {
         return new YourBean(myBean());
-    }*/
+    }
 
-    @Bean
+    /*@Bean
     public YourBean yourBean(MyBean myBean) {
         return new YourBean(myBean);
-    }
+    }*/
 }

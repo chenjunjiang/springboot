@@ -6,7 +6,7 @@ import com.chenjj.spring.boot.proxyBeanMethods.YourBean;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AnnotationConfigApplicationContextTest {
+public class ProxyBeanMethodsTest {
     @Test
     public void refresh() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
