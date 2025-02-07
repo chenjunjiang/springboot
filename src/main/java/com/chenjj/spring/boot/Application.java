@@ -4,8 +4,7 @@ import com.chenjj.spring.boot.args.ArgsBean;
 import com.chenjj.spring.boot.configuration.LoginUserConfig;
 import com.chenjj.spring.boot.configuration.WithoutAnnoConfiguration;
 import com.chenjj.spring.boot.initializer.CustomApplicationContextInitializer;
-import io.prometheus.client.exporter.MetricsServlet;
-import io.prometheus.client.hotspot.DefaultExports;
+import com.chenjj.spring.boot.properties.MyProperties1;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,19 +20,14 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-@RestController
 @SpringBootApplication
-// @EnableConfigurationProperties(value = LoginUserConfig.class )
-// @EnableCaching
 public class Application extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
@@ -45,6 +39,9 @@ public class Application extends SpringBootServletInitializer {
             ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
             ArgsBean argsBean = context.getBean(ArgsBean.class);
             argsBean.printArgs();
+
+            MyProperties1 myProperties1 =context.getBean(MyProperties1.class);
+            System.out.println(myProperties1);
 
         /*SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.addInitializers(new CustomApplicationContextInitializer());
@@ -66,11 +63,6 @@ public class Application extends SpringBootServletInitializer {
         }
     }
 
-    @RequestMapping("/")
-    public String demo1() {
-        return "Hello Boot";
-    }
-
     /**
      * 容器启动完成的时候执行
      *
@@ -78,7 +70,7 @@ public class Application extends SpringBootServletInitializer {
      * @return
      */
     // @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext context) {
+   /* public CommandLineRunner commandLineRunner(ApplicationContext context) {
         return args -> {
             System.out.println("来看看 SpringBoot 默认为我们提供的 Bean：");
             String[] beanNames = context.getBeanDefinitionNames();
@@ -88,12 +80,12 @@ public class Application extends SpringBootServletInitializer {
             // prometheus DefaultExports initialize
             DefaultExports.initialize();
         };
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public ServletRegistrationBean getServletRegistrationBean() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new MetricsServlet());
         servletRegistrationBean.addUrlMappings("/metrics");
         return servletRegistrationBean;
-    }
+    }*/
 }

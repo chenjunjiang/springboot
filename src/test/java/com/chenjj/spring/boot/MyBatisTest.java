@@ -4,10 +4,10 @@ import com.chenjj.spring.boot.dao.User1Dao;
 import com.chenjj.spring.boot.dao.UserDao;
 import com.chenjj.spring.boot.model.User;
 import com.chenjj.spring.boot.model.User1;
-import com.github.pagehelper.PageHelper;
+/*import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.runner.RunWith;*/
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by chenjunjiang on 18-10-4.
  */
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @SpringBootTest
 public class MyBatisTest {
     private static final Logger log = LoggerFactory.getLogger(MyBatisTest.class);
@@ -29,7 +29,7 @@ public class MyBatisTest {
     @Autowired
     private User1Dao user1Dao;
 
-    @Test
+    //@Test
     public void test() {
         /*final int row1 = userDao.insert(new User("u1", "p1"));
         log.info("[添加结果] - [{}]", row1);
@@ -41,7 +41,7 @@ public class MyBatisTest {
         log.info("[根据用户名查询] - [{}]", u1);
     }
 
-    @Test
+    //@Test
     public void test1() {
         /*final User1 user1 = new User1("u1", "p1");
         final User1 user2 = new User1("u2", "p2");
@@ -72,9 +72,9 @@ public class MyBatisTest {
         user1Dao.insertSelective(new User1("u17", "p17"));
         user1Dao.insertSelective(new User1("u18", "p18"));*/
         // TODO 分页 + 排序 this.userMapper.selectAll() 这一句就是我们需要写的查询，有了这两款插件无缝切换各种数据库
-        final PageInfo<User1> pageInfo = PageHelper.startPage(2, 10).setOrderBy("id desc")
+        /*final PageInfo<User1> pageInfo = PageHelper.startPage(2, 10).setOrderBy("id desc")
                 .doSelectPageInfo(() -> this.user1Dao.selectAll());
         List<User1> user1s = pageInfo.getList();
-        log.info("[lambda写法] - [分页信息] - [{}]", pageInfo.toString());
+        log.info("[lambda写法] - [分页信息] - [{}]", pageInfo.toString());*/
     }
 }

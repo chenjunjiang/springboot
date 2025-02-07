@@ -13,279 +13,40 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.4.1</version>
     </parent>
 
     <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        <!-- 默认就内嵌了Tomcat 容器，如需要更换容器也极其简单-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.lmax</groupId>
-            <artifactId>disruptor</artifactId>
-            <version>3.4.2</version>
-        </dependency>
-        <!--
-        为了让 Spring Boot 更好的生成配置元数据文件，
-        我们需要添加如下依赖（该依赖可以不添加，但是在 IDEA 和 STS 中不会有属性提示，
-        没有提示的配置就跟你用记事本写代码一样苦逼，出个问题弄哭你去），
-        该依赖只会在编译时调用，所以不用担心会对生产造成影响
-        -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.10.0</version>
-        </dependency>
-        <!--该包拥有自动装配的特点-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-        <!-- 通用Mapper插件
-        文档地址：https://gitee.com/free/Mapper/wikis/Home -->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>2.0.2</version>
-        </dependency>
-        <!-- 分页插件
-        文档地址：https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/HowToUse.md -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.5</version>
-        </dependency>
-        <!-- MYSQL包 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!--Spring Boot2.x 后底层不再是Jedis如果做版本升级需要注意下-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
-
-        <!-- The client -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- Hotspot JVM metrics-->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_hotspot</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- Exposition HTTPServer-->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_httpserver</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- log4j2-->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_log4j2</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- servlet-->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_servlet</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-        <!-- Pushgateway exposition-->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_pushgateway</artifactId>
-            <version>0.5.0</version>
-        </dependency>
-
-        <!--<dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>-->
-        <dependency>
-            <groupId>com.battcn</groupId>
-            <artifactId>swagger-spring-boot-starter</artifactId>
-            <version>2.1.0-RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
-        <!-- 测试包,当我们使用 mvn package 的时候该包并不会被打入,因为它的生命周期只在 test 之内-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client</artifactId>
-            <version>4.3.0</version>
-        </dependency>
-        <!-- 如果在Linux下把netty的日志设置为debug，那么需要加上以下依赖，否则会报错：no netty_transport_native_epoll_x86_64 in java.library.path -->
-        <!--<dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-transport-native-epoll</artifactId>
-            <version>4.1.43.Final</version>
-            <classifier>linux-x86_64</classifier>
-        </dependency>-->
-        <!--加入的目的仅仅是为了查看源码-->
-        <!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-loader</artifactId>
-            <version>2.2.1.RELEASE</version>
-        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <!-- runtime表示被依赖项目无需参与项目的编译，不过后期的测试和运行周期需要其参与。
-            与compile相比，跳过了编译而已。例如JDBC驱动，适用运行和测试阶段 -->
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <plugins>
-            <!-- Package as an executable jar -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!---如果要访问info接口想获取maven中的属性内容请记得添加如下内容-->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <encoding>utf-8</encoding>
-                    <useDefaultDelimiters>true</useDefaultDelimiters>
-                </configuration>
             </plugin>
         </plugins>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.5.0.Final</version>
-            </extension>
-        </extensions>
     </build>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <!-- 日志级别 -->
-                <dyn.log.level>DEBUG</dyn.log.level>
-                <dyn.profile>dev</dyn.profile>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <!-- 日志级别 -->
-                <dyn.log.level>DEBUG</dyn.log.level>
-                <dyn.profile>test</dyn.profile>
-            </properties>
-            <!--<activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>-->
-        </profile>
-        <profile>
-            <id>yanlian</id>
-            <properties>
-                <!-- 日志级别 -->
-                <dyn.log.level>DEBUG</dyn.log.level>
-                <dyn.profile>yanlian</dyn.profile>
-            </properties>
-            <!--<activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>-->
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <!-- 日志级别 -->
-                <dyn.log.level>INFO</dyn.log.level>
-                <dyn.profile>prod</dyn.profile>
-            </properties>
-            <!-- <activation>
-                 <activeByDefault>true</activeByDefault>
-             </activation>-->
-        </profile>
-    </profiles>
 </project>

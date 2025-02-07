@@ -1,9 +1,9 @@
 package com.chenjj.spring.boot.dao;
 
 import com.chenjj.spring.boot.model.User;
-import org.apache.ibatis.annotations.Mapper;
+/*import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Select;*/
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * <p>
  * Created by chenjunjiang on 18-10-4.
  */
-@Mapper
+//@Mapper
 public interface UserDao {
 
     /**
@@ -23,8 +23,8 @@ public interface UserDao {
      * @param username 用户名
      * @return 查询结果
      */
-    @Select("SELECT * FROM t_user WHERE username = #{username}")
-    List<User> findByUsername(@Param("username") String username);
+    //@Select("SELECT * FROM t_user WHERE username = #{username}")
+    List<User> findByUsername(/*@Param("username")*/ String username);
 
     /**
      * 保存用户信息

@@ -1,19 +1,19 @@
 package com.chenjj.spring.boot.model;
 
-import javax.persistence.GeneratedValue;
+/*import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Table;*/
 import java.io.Serializable;
 
 /**
  * 通用Mapper采用了JPA规范包中的注解，这种的设计避免了重复造轮子，更是让Spring Data Jpa的应用可以轻松切换到Mybatis
  * Created by chenjunjiang on 18-10-4.
  */
-@Table(name = "t_user")
+//@Table(name = "t_user")
 public class User1 implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
     private Long id;
     private String username;
     private String password;

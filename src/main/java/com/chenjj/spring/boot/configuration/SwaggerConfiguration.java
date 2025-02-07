@@ -1,27 +1,9 @@
 package com.chenjj.spring.boot.configuration;
 
-import com.fasterxml.classmate.TypeResolver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.async.DeferredResult;
-import springfox.documentation.builders.*;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.service.*;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger.web.*;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.google.common.collect.Lists.newArrayList;
-import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 public class SwaggerConfiguration {
     /*//swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等

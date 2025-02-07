@@ -4,7 +4,7 @@ import com.chenjj.spring.boot.dao.TestDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class TestConfig {
     @Bean
     public TestDao testDao(){

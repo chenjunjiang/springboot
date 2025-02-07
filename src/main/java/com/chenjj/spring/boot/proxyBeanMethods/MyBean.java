@@ -1,6 +1,7 @@
 package com.chenjj.spring.boot.proxyBeanMethods;
 
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 
 public class MyBean {
     public MyBean() {

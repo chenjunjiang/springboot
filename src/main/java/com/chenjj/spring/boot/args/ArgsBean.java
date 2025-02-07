@@ -1,9 +1,9 @@
 package com.chenjj.spring.boot.args;
 
+import jakarta.annotation.Resource;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 
 /**
  * --test=xx,yy non-option

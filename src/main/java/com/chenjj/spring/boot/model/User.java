@@ -1,6 +1,5 @@
 package com.chenjj.spring.boot.model;
 
-import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
@@ -23,9 +22,9 @@ public class User implements Serializable {
     private static final long serialVersionUID = -7228826270264413177L;
 
     private Long id;
-    @ApiModelProperty("用户名")
+    //@ApiModelProperty("用户名")
     private String username;
-    @ApiModelProperty("密码")
+    //@ApiModelProperty("密码")
     private String password;
 
     public User() {

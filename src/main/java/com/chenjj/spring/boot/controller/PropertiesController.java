@@ -3,8 +3,6 @@ package com.chenjj.spring.boot.controller;
 import com.chenjj.spring.boot.properties.MyProperties1;
 import com.chenjj.spring.boot.properties.MyProperties2;
 import com.chenjj.spring.boot.response.ReturnMessage;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequestMapping("/properties")
+/*@RequestMapping("/properties")
 @RestController
-@Api(tags = "1.0", description = "属性管理", value = "属性管理")
+@Api(tags = "1.0", description = "属性管理", value = "属性管理")*/
 public class PropertiesController {
     private static final Logger logger = LoggerFactory.getLogger(PropertiesController.class);
 
@@ -36,7 +34,7 @@ public class PropertiesController {
     }
 
     @GetMapping("/1")
-    @ApiOperation(value = "查询第一个属性")
+    //@ApiOperation(value = "查询第一个属性")
     public ReturnMessage myProperties1() {
         logger.info("===============================");
         logger.info(myProperties1.toString());
