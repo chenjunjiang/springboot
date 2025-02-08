@@ -1,0 +1,73 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /demo
+--- # 使用 --- 分隔符可以使你在同一个文件中组织多个独立的 YAML 文档，每个文档都可以有自己的根节点和结构。这种结构在某些场景下很有用，例如将多个配置文件或配置块组织在一个文件中，使文件更为模块化。
+user:
+  username: chenjj
+  password: 123
+
+---
+person:
+  #  name: 张三
+  #  name: '张三 \n xxx' # 单引号不会转义【\n 则为普通字符串显示】
+  #  name: "张三 \n xxx" #   双引号会转义【\n会显示为换行符】
+  #  name: | # 竖线 | 符号通常用于指示多行字符串的折叠标记。这意味着在使用 | 符号后，后面的多行文本会被保留为原始格式，其中的换行符和空格会被保留，而不会像普通字符串一样被折叠或忽略。
+  #    张三的名字
+  #    李四的名字  xxx
+  #    王五的名字  yyy
+  name: > # > 符号通常用于指示多行字符串的折叠标记。这意味着在使用 > 符号后，后面的多行文本会被折叠，其中的换行符会被替换为空格，而空格会被保留。
+    This is a folded
+    block of text.
+    It folds multiple
+    lines into a single li
+  age: 42
+  birthday: 1988/08/20
+  like: true
+  child:
+    name: 李四
+    age: 12
+    birthday: 2018/08/20
+    #    text: ["abc", "ert"]
+    text: abc,ert
+  #    text:
+  #      - abc
+  #      - ert
+  #  dogs: [{name: "旺财",age: 2},{name: "大黄",age: 3}]
+  dogs:
+    - name: "旺财"
+      age: 2
+    - name: "大黄"
+      age: 3
+  cats:
+    c1:
+      name: "加菲猫"
+      age: 1
+    c2:
+      name: "小白"
+      age: 4
+#  cats:
+#    c1: { name: "加菲猫",age: 1 }
+#    c2: { name: "小白",age: 4 }
+
+# springboot使用logback + slf4j 组合作为默认底层日志，默认日志级别是INFO
+#logging:
+#  level:
+#    root: info # 所有未指定日志级别的默认就使用root级别
+#    com:
+#      chenjj:
+#        spring:
+#          boot:
+#            controller: warn # com.chenjj.spring.boot.controller包下的日志级别为warn
+#    abc: info # abc这个组包含的包的日志级别为info
+#  group:
+#    abc: org.apache.catalina,org.apache.coyote,org.apache.tomcat # 定义一个日志组，并指定要包含的包
+#  file:
+#    name: D:\\log\\log.log # SpringBoot 默认只把日志写在控制台，如果想额外记录到文件，可以在application.properties中添加logging.file.name配置项。
+#  logback: #SpringBoot默认整合了logback作为日志框架，所以可以配置logback相关属性，如果是其他日志系统，比如log4j2，那需要自行配置（添加log4j2.xml或log4j2-spring.xml）
+#    rollingpolicy:
+#      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz）
+#      clean-history-on-start: true
+#      max-file-size: 10MB
+#      total-size-cap: 1GB
+#      max-history: 30

@@ -1,6 +1,5 @@
 package com.chenjj.spring.boot;
 
-import com.chenjj.spring.boot.Application;
 import com.chenjj.spring.boot.model.User;
 import com.chenjj.spring.boot.service.UserService;
 import org.junit.Assert;
@@ -10,25 +9,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import static org.mockito.ArgumentMatchers.anyInt;
 
 /**
  * 如果ApplicationTest所在的包和Application所在包是一样的，那就不需要指定classes = {Application.class}
@@ -49,7 +37,7 @@ public class ApplicationTest {
      * @MockBean 注解，就声明了对应类型的一个mock bean。如果spring上下文中已经存在对应类型的bean，将会被mock bean覆盖掉。
      * https://www.cnblogs.com/ywjy/p/9997412.html
      */
-    @MockBean
+    //@MockBean
     private UserService userService;
     /*@LocalServerPort
     private int port;

@@ -1,31 +1,12 @@
 package com.chenjj.spring.boot;
 
 import com.chenjj.spring.boot.args.ArgsBean;
-import com.chenjj.spring.boot.configuration.LoginUserConfig;
-import com.chenjj.spring.boot.configuration.WithoutAnnoConfiguration;
-import com.chenjj.spring.boot.initializer.CustomApplicationContextInitializer;
-import com.chenjj.spring.boot.properties.MyProperties1;
-import org.springframework.boot.Banner;
-import org.springframework.boot.CommandLineRunner;
+import com.chenjj.spring.boot.properties.PersonProperties;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
@@ -40,8 +21,8 @@ public class Application extends SpringBootServletInitializer {
             ArgsBean argsBean = context.getBean(ArgsBean.class);
             argsBean.printArgs();
 
-            MyProperties1 myProperties1 =context.getBean(MyProperties1.class);
-            System.out.println(myProperties1);
+            PersonProperties properties =context.getBean(PersonProperties.class);
+            System.out.println(properties);
 
         /*SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.addInitializers(new CustomApplicationContextInitializer());

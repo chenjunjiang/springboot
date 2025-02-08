@@ -1,47 +1,23 @@
 package com.chenjj.spring.boot.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+/**
+ * @ClassName MyProperties2
+ * @Description
+ * @Author chenjunjiang
+ * @Date 19:25 2025/2/8
+ * @Version 1.0
+ **/
 @Component
 @PropertySource("classpath:my2.properties")
 @ConfigurationProperties(prefix = "my2")
+@Data
 public class MyProperties2 {
-    private int age;
     private String name;
+    private int age;
     private String email;
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "MyProperties2{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }
