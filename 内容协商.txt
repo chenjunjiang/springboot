@@ -1,0 +1,33 @@
+ 默认规则
+1. SpringBoot 多端内容适配。
+  1.1. 基于请求头内容协商：（默认开启）
+    1.1.1. 客户端向服务端发送请求，携带HTTP标准的Accept请求头。
+      1.1.1.1. Accept: application/json、text/xml、text/yaml
+      1.1.1.2. 服务端根据客户端请求头期望的数据类型进行动态返回
+  1.2. 基于请求参数内容协商：（需要开启）
+    1.2.1. 发送请求 GET /projects/spring-boot?format=json
+    1.2.2. 匹配到 @GetMapping("/projects/spring-boot")
+    1.2.3. 根据参数协商，优先返回 json 类型数据【需要开启参数匹配设置】
+    1.2.4. 发送请求 GET /projects/spring-boot?format=xml,优先返回 xml 类型数据
+
+要返回xml数据，直接在pom.xml中导入：
+<dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+直接用postman请求http://localhost:9091/demo/person?type=xml，就会返回xml格式的数据
+
+要返回yaml数据，直接在pom.xml中导入：
+<dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+</dependency>
+直接用postman请求http://localhost:9091/demo/person?type=yaml，就会返回yaml格式的数据
+
+
+自定义内容协商，比如和请求方约定一直协议：xxx
+● 配置媒体类型支持:
+  ○ spring.mvc.contentnegotiation.media-types.xxx=text/xxx
+● 编写对应的HttpMessageConverter，要告诉Boot这个支持的媒体类型
+● 把MessageConverter组件加入到底层
+  ○ 容器中放一个`WebMvcConfigurer` 组件，并加入自定义的MessageConverter

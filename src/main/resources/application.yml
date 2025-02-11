@@ -71,3 +71,24 @@ person:
 #      max-file-size: 10MB
 #      total-size-cap: 1GB
 #      max-history: 30
+
+# 静态资源映射规则在 WebMvcAutoConfiguration 中进行了定义：
+#1. /webjars/** 的所有路径 资源都在 classpath:/META-INF/resources/webjars/
+#2. /** 的所有路径 资源都在 classpath:/META-INF/resources/、classpath:/resources/、classpath:/static/、classpath:/public/
+#spring:
+#  web:
+#    resources:
+#      static-locations: classpath:/static/,classpath:/a/,classpath:/b/ #自定义静态资源文件夹位置
+#  mvc:
+#    #static-path-pattern: /** # 静态资源访问路径前缀，默认是/**，比如访问http://localhost:9091/demo/xxx/x.txt就会到上面配置的静态资源文件夹中查找
+#    static-path-pattern: /static/** # 那么访问路径中要有static前缀才会访问到静态资源文件夹位置中的文件 http://localhost:9091/demo/static/xxx/x.txt
+#    webjars-path-pattern: /wj/** # 默认是/webjars/**
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    contentnegotiation:
+      favor-parameter: true # 开启基于请求参数的内容协商功能,默认此功能不开启
+      parameter-name: type # 指定内容协商时使用的参数名。默认是 format  http://localhost:9091/demo/person?type=xml
+      media-types:
+        xxx: application/xxx  # 自定义协商内容，对应的是MyXxxHttpMessageConverter，只要访问http://localhost:9091/demo/person?type=xxx或者是访问http://localhost:9091/demo/person加上 Accept为application/xxx 即可

@@ -51,6 +51,25 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>-->
 
+        <!-- 支持把对象格式化为xml 直接用postman请求http://localhost:9091/demo/person?type=xml，就会返回xml格式的数据-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+        <!-- 支持把对象格式化为yaml  直接用postman请求http://localhost:9091/demo/person?type=yaml，就会返回yaml格式的数据-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+
+        <!-- 支持把对象格式化为csv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.5.2</version> <!-- 请使用最新版本 -->
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
