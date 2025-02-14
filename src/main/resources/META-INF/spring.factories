@@ -3,3 +3,6 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 org.springframework.boot.SpringApplicationRunListener=\
 com.chenjj.spring.boot.listener.MyApplicationRunListener
+
+org.springframework.context.ApplicationListener=\
+com.chenjj.spring.boot.listener.MyApplicationListener

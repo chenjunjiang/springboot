@@ -87,8 +87,20 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-    contentnegotiation:
-      favor-parameter: true # 开启基于请求参数的内容协商功能,默认此功能不开启
-      parameter-name: type # 指定内容协商时使用的参数名。默认是 format  http://localhost:9091/demo/person?type=xml
-      media-types:
-        xxx: application/xxx  # 自定义协商内容，对应的是MyXxxHttpMessageConverter，只要访问http://localhost:9091/demo/person?type=xxx或者是访问http://localhost:9091/demo/person加上 Accept为application/xxx 即可
+#    contentnegotiation:
+#      favor-parameter: true # 开启基于请求参数的内容协商功能,默认此功能不开启
+#      parameter-name: type # 指定内容协商时使用的参数名。默认是 format  http://localhost:9091/demo/person?type=xml
+#      media-types:
+#        xxx: application/xxx  # 自定义协商内容，对应的是MyXxxHttpMessageConverter，只要访问http://localhost:9091/demo/person?type=xxx或者是访问http://localhost:9091/demo/person加上 Accept为application/xxx 即可
+
+    problemdetails:
+      enabled: true # 开启ProblemDetails功能，默认是关闭的，mvc内部的一些异常
+      #（比如：HttpRequestMethodNotSupportedException）发生后会用新的格式返回错误信息；要测试这个功能，需要关闭自己定义的GlobalExceptionHandler
+#      比如，返回这样的错误信息：
+#      {
+#        "type": "about:blank",
+#        "title": "Method Not Allowed",
+#        "status": 405,
+#        "detail": "Method 'POST' is not supported.",
+#        "instance": "/list"
+#      }
