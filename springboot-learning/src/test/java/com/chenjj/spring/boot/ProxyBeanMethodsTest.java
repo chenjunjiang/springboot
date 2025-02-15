@@ -3,7 +3,7 @@ package com.chenjj.spring.boot;
 import com.chenjj.spring.boot.proxyBeanMethods.AppConfig;
 import com.chenjj.spring.boot.proxyBeanMethods.MyBean;
 import com.chenjj.spring.boot.proxyBeanMethods.YourBean;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ProxyBeanMethodsTest {

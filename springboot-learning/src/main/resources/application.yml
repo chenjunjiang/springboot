@@ -104,3 +104,6 @@ spring:
 #        "detail": "Method 'POST' is not supported.",
 #        "instance": "/list"
 #      }
+sms:
+  phone: 18183281678
+  content: 明天去公司开会

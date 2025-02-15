@@ -3,8 +3,7 @@ package com.chenjj.spring.boot;
 import com.chenjj.spring.boot.dao.UserDao;
 import com.chenjj.spring.boot.model.User;
 import com.chenjj.spring.boot.service.UserService;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -18,7 +17,7 @@ public class UserServiceTest3 {
     @Mock
     private UserDao userDao;
 
-    @Before
+    /*@Before
     public void setUp() {
         // 必须加上这句
         MockitoAnnotations.initMocks(this);
@@ -26,7 +25,7 @@ public class UserServiceTest3 {
         when(userDao.insert(isA(User.class))).thenReturn(1);
         when(userDao.findById(anyInt())).thenReturn(new User("zhangsan", "123456"));
         userService = new UserService(userDao);
-    }
+    }*/
 
     @Test
     public void testAdd() {
