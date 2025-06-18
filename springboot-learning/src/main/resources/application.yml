@@ -8,6 +8,12 @@ user:
   password: 123
 
 ---
+database:
+  url: http://127.0.0.1:3306/demo
+  username: root
+  password: 123
+
+---
 person:
   #  name: 张三
   #  name: '张三 \n xxx' # 单引号不会转义【\n 则为普通字符串显示】
